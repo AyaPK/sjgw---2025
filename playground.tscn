@@ -60,7 +60,7 @@ texture_region_size = Vector2i(16, 18)
 tile_size = Vector2i(16, 18)
 sources/0 = SubResource("TileSetAtlasSource_m8u5f")
 
-[node name="Playground" type="Node2D"]
+[node name="Playground" type="Node2D" groups=["level"]]
 script = ExtResource("1_is3ju")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
@@ -75,4 +75,4 @@ collision_mask = 16
 jump_force = 200.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(245, 97)
+position = Vector2(397, 97)
