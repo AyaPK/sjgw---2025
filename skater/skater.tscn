@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://8mfge5s41c7i"]
+
+[ext_resource type="Script" uid="uid://c1tg6qa3mnig5" path="res://skater.gd" id="1_1noyb"]
+[ext_resource type="Texture2D" uid="uid://2avdeml8mynl" path="res://assets/character-sheet.png" id="2_46ose"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0iiw"]
+radius = 5.0
+height = 20.0
+
+[node name="Skater" type="CharacterBody2D"]
+script = ExtResource("1_1noyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+texture = ExtResource("2_46ose")
+hframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_e0iiw")
