@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8mfge5s41c7i"]
+[gd_scene load_steps=10 format=3 uid="uid://8mfge5s41c7i"]
 
 [ext_resource type="Script" uid="uid://c1tg6qa3mnig5" path="res://skater.gd" id="1_1noyb"]
 [ext_resource type="Texture2D" uid="uid://2avdeml8mynl" path="res://assets/character-sheet.png" id="2_46ose"]
@@ -70,21 +70,39 @@ tracks/0/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_8epup"]
+resource_name = "grind"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 10]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdj87"]
 _data = {
 &"RESET": SubResource("Animation_e0iiw"),
 &"fall": SubResource("Animation_2m31k"),
+&"grind": SubResource("Animation_8epup"),
 &"idle": SubResource("Animation_46ose"),
 &"jump": SubResource("Animation_wdj87")
 }
 
-[node name="Skater" type="CharacterBody2D"]
+[node name="Skater" type="CharacterBody2D" groups=["skater"]]
 script = ExtResource("1_1noyb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -14)
 texture = ExtResource("2_46ose")
-hframes = 10
+hframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

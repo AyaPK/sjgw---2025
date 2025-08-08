@@ -5,6 +5,7 @@ class_name Skater extends CharacterBody2D
 @export var max_fall_speed: float = 1000.0
 @onready var animated_sprite: AnimationPlayer = $AnimationPlayer
 
+var grinding: bool = false
 
 func _physics_process(delta):
 	velocity.x = 0
@@ -26,5 +27,8 @@ func update_animation():
 			animated_sprite.play("jump")
 		else:
 			animated_sprite.play("fall")
+	elif grinding:
+		animated_sprite.play("grind")
 	else:
 		animated_sprite.play("idle")
+	
