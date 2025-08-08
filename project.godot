@@ -17,6 +17,10 @@ run/max_fps=60
 run/delta_smoothing=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+ObstacleManager="*res://00_autoloads/obstacle_manager.gd"
+
 [display]
 
 window/size/viewport_width=576
