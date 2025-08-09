@@ -5,6 +5,7 @@ class_name Skater extends CharacterBody2D
 @export var max_fall_speed: float = 1000.0
 @onready var animated_sprite: AnimationPlayer = $AnimationPlayer
 @onready var landing_sfx: AudioStreamPlayer = $LandSFX 
+@onready var skate_particles: GPUParticles2D = $skate_particles
 
 var tricking: bool = false
 var grinding: bool = false
@@ -14,11 +15,16 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, max_fall_speed)
+		skate_particles.emitting = false
 	else:
+		if !grinding:
+			skate_particles.process_material.color = "858585"
+		elif grinding:
+			skate_particles.process_material.color = "f9be00"
+		skate_particles.emitting = true
 		if Input.is_action_just_pressed("a"):
 			$OllieSFX.play()
 			velocity.y = -jump_force
-
 	if Input.is_action_just_pressed("b"):
 		tricking = true
 	
@@ -62,3 +68,6 @@ func update_animation():
 
 func _stop_tricking() -> void:
 	tricking = false
+	
+func play_trick_sfx() -> void:
+	pass
