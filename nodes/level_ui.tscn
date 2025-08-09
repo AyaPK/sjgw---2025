@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://7tgst6n32p0n"]
+
+[ext_resource type="Script" uid="uid://4qqwq0n6awk8" path="res://nodes/level_ui.gd" id="1_ijhck"]
+[ext_resource type="FontFile" uid="uid://bwbmw7rvg8oeq" path="res://assets/fonts/m5x7.ttf" id="2_bguq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bguq0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+
+[node name="LevelUi" type="CanvasLayer"]
+script = ExtResource("1_ijhck")
+
+[node name="Score" type="RichTextLabel" parent="."]
+offset_left = -1.0
+offset_top = -5.0
+offset_right = 309.0
+offset_bottom = 35.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.486275)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_bguq0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bguq0")
+text = "Score: 0"
+
+[node name="ScoreTime" type="Timer" parent="."]

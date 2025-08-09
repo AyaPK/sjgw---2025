@@ -14,6 +14,9 @@ var grinding: bool = false
 var was_on_floor: bool = false
 var dead: bool = false
 
+func _ready() -> void:
+	ScoreManager.skater = self
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -62,16 +65,22 @@ func update_animation():
 	elif grinding:
 		animated_sprite.play("grind")
 		$RollSFX.stop()
-		if !$GrindSFX.playing:
+		if !$GrindSFX.playing and !dead:
 			$GrindSFX.play()
 	else:
 		animated_sprite.play("idle")
 		$GrindSFX.stop()
-		if !$RollSFX.playing:
+		if !$RollSFX.playing and !dead:
 			$RollSFX.play()
 
 func _stop_tricking() -> void:
 	tricking = false
+	ScoreManager.score += 25
 	
 func play_trick_sfx() -> void:
+	pass
+
+func mute_audio() -> void:
+	$RollSFX.stop()
+	$GrindSFX.stop()
 	pass

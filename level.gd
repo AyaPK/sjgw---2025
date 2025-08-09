@@ -4,6 +4,8 @@ class_name Level extends Node2D
 @onready var obstacle_spawn: Marker2D = $Marker2D
 @onready var skater: Skater = $Skater
 @onready var bg: Node2D = $TileMapLayer2
+@onready var level_ui: CanvasLayer = $LevelUi
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 const MAIN_SONG = preload("res://assets/main_song.mp3")
 const MAIN_SONG_KICK_ONLY = preload("res://assets/main_song_kick_only.mp3")
@@ -15,10 +17,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-
 func _on_deathplane_body_entered(body: Skater) -> void:
 	if body in get_tree().get_nodes_in_group("skater"):
 		body.sprite.hide()
 		body.dead = true
 		body.death_particles.emitting = true
 		ObstacleManager.pause_movement()
+		audio_stream_player.stop()
+		body.mute_audio()

@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ObstacleManager="*res://00_autoloads/obstacle_manager.gd"
+ScoreManager="*res://00_autoloads/score_manager.gd"
 
 [display]
 

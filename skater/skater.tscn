@@ -166,6 +166,7 @@ scale_over_velocity_curve = SubResource("CurveTexture_wlbp2")
 color = Color(0.103861, 0.830493, 1.11663e-05, 1)
 
 [node name="Skater" type="CharacterBody2D" groups=["skater"]]
+process_mode = 3
 script = ExtResource("1_1noyb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -212,7 +213,7 @@ process_material = SubResource("ParticleProcessMaterial_3f26f")
 
 [node name="death_particles" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 16
+amount = 32
 lifetime = 5.0
 one_shot = true
 explosiveness = 1.0
