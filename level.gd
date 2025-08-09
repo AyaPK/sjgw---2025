@@ -8,5 +8,5 @@ func _ready() -> void:
 	ObstacleManager.level = self
 	ObstacleManager.spawn_starting_obstacles()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

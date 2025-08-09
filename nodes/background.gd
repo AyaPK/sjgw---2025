@@ -8,7 +8,7 @@ extends Node2D
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	bg_one.global_position.x -= 0.5
 	bg_two.global_position.x -= 0.5
 
