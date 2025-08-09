@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	bg_two.global_position.x -= 0.5
 
 func _on_edge_one_screen_exited() -> void:
-	bg_one.global_position.x = edge_two.global_position.x
+	bg_one.global_position.x = edge_two.global_position.x + 32
 
 func _on_edge_two_screen_exited() -> void:
-	bg_two.global_position.x = edge_one.global_position.x
+	bg_two.global_position.x = edge_one.global_position.x + 32
