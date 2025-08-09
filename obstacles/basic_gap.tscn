@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://duljg332xaoi"]
 
-[ext_resource type="Script" uid="uid://cr4ubis2jhigg" path="res://obstacles/obstacle.gd" id="1_3vp8a"]
+[ext_resource type="Script" uid="uid://ckrsc8r5lwc80" path="res://obstacles/basic_gap.gd" id="1_3vp8a"]
 [ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="2_glufs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt17y"]
@@ -16,9 +16,11 @@ texture_region_size = Vector2i(18, 18)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -9, 9, -9, 9, 9, -9, 9)
 7:0/0 = 0
 8:0/0 = 0
 9:0/0 = 0
@@ -145,8 +147,12 @@ sources/0 = SubResource("TileSetAtlasSource_wt17y")
 [node name="Node2D" type="Node2D" groups=["obstacles"]]
 script = ExtResource("1_3vp8a")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAABAAAAAAAFAAAAAAACAAAAAAAFAAAAAAADAAAAAAAFAAAAAAAJAAAAAAAFAAAAAAAKAAAAAAAFAAAAAAALAAAAAAAFAAAAAAAMAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAANAAAAAAAFAAAAAAAOAAAAAAAFAAAAAAAPAAAAAAAFAAAAAAD//wAAAAAFAAAAAAAEAAAAAAAGAAAAAAAIAAAAAAAEAAAAAAA=")
+[node name="gap_right" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAAAAAAFAAAAAAAKAAAAAAAFAAAAAAALAAAAAAAFAAAAAAAMAAAAAAAFAAAAAAANAAAAAAAFAAAAAAAOAAAAAAAFAAAAAAAPAAAAAAAFAAAAAAAIAAAAAAAEAAAAAAAIAP//AAAIAAEAAAAIAP7/AAAIAAEAAAAIAP3/AAAIAAEAAAAIAPz/AAAIAAEAAAAIAPv/AAAIAAEAAAAIAPr/AAAIAAEAAAAIAPn/AAAIAAEAAAAIAPj/AAAIAAEAAAAIAPf/AAAIAAEAAAA=")
+tile_set = SubResource("TileSet_m8u5f")
+
+[node name="gap_left" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAAAAAAFAAAAAAACAAAAAAAFAAAAAAADAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAD//wAAAAAFAAAAAAAEAAAAAAAGAAAAAAAEAP//AAAIAAEAAAAEAP7/AAAIAAEAAAAEAP3/AAAIAAEAAAAEAPz/AAAIAAEAAAAEAPv/AAAIAAEAAAAEAPr/AAAIAAEAAAAEAPn/AAAIAAEAAAAEAPj/AAAIAAEAAAAEAPf/AAAIAAEAAAA=")
 tile_set = SubResource("TileSet_m8u5f")
 
 [node name="Edge" type="VisibleOnScreenNotifier2D" parent="."]
