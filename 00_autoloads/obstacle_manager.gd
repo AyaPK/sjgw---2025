@@ -4,6 +4,7 @@ var level: Level
 
 const FLAT_GROUND = preload("res://obstacles/flat_ground.tscn")
 const BASIC_RAIL = preload("res://obstacles/basic_rail.tscn")
+const BASIC_GAP = preload("res://obstacles/basic_gap.tscn")
 
 func _ready() -> void:
 	pass
@@ -14,8 +15,11 @@ func _physics_process(delta: float) -> void:
 func spawn_new_obstacle() -> void:
 	var last_obstacle: Obstacle = get_tree().get_nodes_in_group("obstacles").back()
 	var chosen: int = randi_range(0, 10)
+	print(chosen)
 	var obstacle: Obstacle
-	if chosen > 3:
+	if chosen < 5:
+		obstacle = BASIC_GAP.instantiate()
+	elif chosen < 7:
 		obstacle = FLAT_GROUND.instantiate()
 	else:
 		obstacle = BASIC_RAIL.instantiate()

@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://dpvuqtirhlk7i"]
+[gd_scene load_steps=5 format=4 uid="uid://duljg332xaoi"]
 
-[ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="1_i73gb"]
-[ext_resource type="Script" uid="uid://cr4ubis2jhigg" path="res://obstacles/obstacle.gd" id="1_lprlh"]
+[ext_resource type="Script" uid="uid://cr4ubis2jhigg" path="res://obstacles/obstacle.gd" id="1_3vp8a"]
+[ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="2_glufs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt17y"]
-texture = ExtResource("1_i73gb")
+texture = ExtResource("2_glufs")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
@@ -143,10 +143,10 @@ physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_wt17y")
 
 [node name="Node2D" type="Node2D" groups=["obstacles"]]
-script = ExtResource("1_lprlh")
+script = ExtResource("1_3vp8a")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAABAAAAAAAFAAAAAAACAAAAAAAFAAAAAAADAAAAAAAFAAAAAAAJAAAAAAAFAAAAAAAKAAAAAAAFAAAAAAALAAAAAAAFAAAAAAAMAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAANAAAAAAAFAAAAAAAOAAAAAAAFAAAAAAAPAAAAAAAFAAAAAAD//wAAAAAFAAAAAAAEAAAAAAAFAAAAAAAFAAAAAAAFAAAAAAAGAAAAAAAFAAAAAAAHAAAAAAAFAAAAAAAIAAAAAAAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAAAAAAFAAAAAAACAAAAAAAFAAAAAAADAAAAAAAFAAAAAAAJAAAAAAAFAAAAAAAKAAAAAAAFAAAAAAALAAAAAAAFAAAAAAAMAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAANAAAAAAAFAAAAAAAOAAAAAAAFAAAAAAAPAAAAAAAFAAAAAAD//wAAAAAFAAAAAAAEAAAAAAAGAAAAAAAIAAAAAAAEAAAAAAA=")
 tile_set = SubResource("TileSet_m8u5f")
 
 [node name="Edge" type="VisibleOnScreenNotifier2D" parent="."]
