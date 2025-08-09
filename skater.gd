@@ -10,8 +10,6 @@ var tricking: bool = false
 var grinding: bool = false
 
 func _physics_process(delta):
-	velocity.x = 0
-
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, max_fall_speed)
@@ -21,14 +19,19 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("b"):
 		tricking = true
-
+	
+	if global_position.x < 75:
+		velocity.x = 10
+	else:
+		velocity.x = 0
+	
 	move_and_slide()
 	update_animation()
 
 func update_animation():
 	if tricking:
 		animated_sprite.play("kickflip")
-		if not is_on_floor():
+		if !is_on_floor():
 			return
 		else:
 			tricking = false

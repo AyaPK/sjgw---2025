@@ -5,6 +5,8 @@ var level: Level
 const FLAT_GROUND = preload("res://obstacles/flat_ground.tscn")
 const BASIC_RAIL = preload("res://obstacles/basic_rail.tscn")
 const BASIC_GAP = preload("res://obstacles/basic_gap.tscn")
+const GAP_RAIL_UP = preload("res://obstacles/gap_rail_up.tscn")
+const GAP_RAIL_DOWN = preload("res://obstacles/gap_rail_down.tscn")
 
 func _ready() -> void:
 	pass
@@ -17,7 +19,15 @@ func spawn_new_obstacle() -> void:
 	var chosen: int = randi_range(0, 10)
 	var obstacle: Obstacle
 	var height_change: int
-	if chosen < 6:
+	if chosen < 2:
+		if level.obstacle_spawn.global_position.y >= 110:
+			obstacle = GAP_RAIL_UP.instantiate()
+			height_change = -36
+		else:
+			obstacle = GAP_RAIL_DOWN.instantiate()
+			height_change = 36
+		level.obstacles_container.add_child(obstacle)
+	elif chosen < 4:
 		obstacle = BASIC_GAP.instantiate()
 		level.obstacles_container.add_child(obstacle)
 		height_change = _calc_height_change()

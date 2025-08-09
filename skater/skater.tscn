@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://c1tg6qa3mnig5" path="res://skater.gd" id="1_1noyb"]
 [ext_resource type="Texture2D" uid="uid://2avdeml8mynl" path="res://assets/character-sheet.png" id="2_46ose"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0iiw"]
-radius = 5.0
-height = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46ose"]
+size = Vector2(8, 20)
 
 [sub_resource type="Animation" id="Animation_e0iiw"]
 length = 0.001
@@ -137,7 +136,7 @@ hframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_e0iiw")
+shape = SubResource("RectangleShape2D_46ose")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

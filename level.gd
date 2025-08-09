@@ -2,6 +2,7 @@ class_name Level extends Node2D
 
 @onready var obstacles_container: Node2D = $ObstaclesContainer
 @onready var obstacle_spawn: Marker2D = $Marker2D
+@onready var skater: Skater = $Skater
 
 func _ready() -> void:
 	ObstacleManager.level = self
