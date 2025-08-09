@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://dpvuqtirhlk7i"]
+[gd_scene load_steps=6 format=4 uid="uid://e330eug7ypol"]
 
-[ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="1_i73gb"]
-[ext_resource type="Script" uid="uid://cr4ubis2jhigg" path="res://obstacles/obstacle.gd" id="1_lprlh"]
+[ext_resource type="Script" uid="uid://cew2ttlrmxdbj" path="res://obstacles/kicker.gd" id="1_yinbw"]
+[ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="2_pn65o"]
+[ext_resource type="PackedScene" uid="uid://cldbi11r3u2f0" path="res://nodes/launcher.tscn" id="3_pn65o"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lprlh"]
-texture = ExtResource("1_i73gb")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yinbw"]
+texture = ExtResource("2_pn65o")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
@@ -22,7 +23,9 @@ texture_region_size = Vector2i(18, 18)
 7:0/0 = 0
 8:0/0 = 0
 9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(9, -1.125, 9, 9, -9, 9)
 10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.375, -6.75, 3.375, 9, -9, 9, -9, -1.125)
 11:0/0 = 0
 12:0/0 = 0
 13:0/0 = 0
@@ -137,20 +140,22 @@ texture_region_size = Vector2i(18, 18)
 14:6/0 = 0
 15:6/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_m8u5f"]
+[sub_resource type="TileSet" id="TileSet_pn65o"]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 16
-sources/0 = SubResource("TileSetAtlasSource_lprlh")
+sources/0 = SubResource("TileSetAtlasSource_yinbw")
 
 [node name="Node2D" type="Node2D" groups=["obstacles"]]
-script = ExtResource("1_lprlh")
+script = ExtResource("1_yinbw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAABAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAD//wAAAAAFAAAAAAACAAAAAAAFAAAAAAADAAAAAAAFAAAAAAAEAAAAAAAFAAAAAAAFAAAAAAAFAAAAAAAGAAAAAAAFAAAAAAAHAAAAAAAFAAAAAAAIAAAAAAAFAAAAAAAJAAAAAAAFAAAAAAAKAAAAAAAFAAAAAAALAAAAAAAFAAAAAAAMAAAAAAAFAAAAAAANAAAAAAAFAAAAAAAOAAAAAAAFAAAAAAAPAAAAAAAFAAAAAAA=")
-tile_set = SubResource("TileSet_m8u5f")
+tile_map_data = PackedByteArray("AAABAAAAAAAFAAAAAAAAAAAAAAAFAAAAAAD//wAAAAAFAAAAAAABAP//AAAJAAAAAAACAP//AAAKAAAAAAACAAAAAAAFAAAAAAA=")
+tile_set = SubResource("TileSet_pn65o")
 
 [node name="Edge" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(287.5, 37)
+position = Vector2(53.5, 35)
 scale = Vector2(0.05, 3.5)
+
+[node name="Launcher" parent="." instance=ExtResource("3_pn65o")]
 
 [connection signal="screen_exited" from="Edge" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
