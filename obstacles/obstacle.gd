@@ -15,5 +15,5 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	ObstacleManager._spawn_new_flatground()
+	ObstacleManager.spawn_new_obstacle()
 	queue_free()
