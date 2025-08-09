@@ -13,8 +13,7 @@ config_version=5
 config/name="SJGW - 2025"
 run/main_scene="uid://b4y7mpkcbgnnv"
 config/features=PackedStringArray("4.4", "Forward Plus")
-run/max_fps=60
-run/delta_smoothing=false
+run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [autoload]
@@ -30,6 +29,7 @@ window/size/window_height_override=648
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale=2.0
+window/dpi/allow_hidpi=false
 
 [global_group]
 
