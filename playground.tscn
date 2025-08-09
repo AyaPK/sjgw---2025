@@ -1,16 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4y7mpkcbgnnv"]
+[gd_scene load_steps=6 format=3 uid="uid://b4y7mpkcbgnnv"]
 
 [ext_resource type="Script" uid="uid://dxq2sfc3ul8wt" path="res://level.gd" id="1_is3ju"]
 [ext_resource type="PackedScene" uid="uid://dx1yysfkocu4r" path="res://nodes/background.tscn" id="2_is3ju"]
 [ext_resource type="PackedScene" uid="uid://8mfge5s41c7i" path="res://skater/skater.tscn" id="2_wt17y"]
 [ext_resource type="AudioStream" uid="uid://8ahn8632u1ub" path="res://assets/main_song.mp3" id="5_o00ia"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is3ju"]
+size = Vector2(471, 15)
+
 [node name="Playground" type="Node2D" groups=["level"]]
 script = ExtResource("1_is3ju")
 
 [node name="TileMapLayer2" parent="." instance=ExtResource("2_is3ju")]
+process_mode = 3
 
 [node name="ObstaclesContainer" type="Node2D" parent="."]
+process_mode = 3
 
 [node name="Skater" parent="." instance=ExtResource("2_wt17y")]
 position = Vector2(75, 70)
@@ -26,3 +31,11 @@ autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(144, 96)
+
+[node name="deathplane" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deathplane"]
+position = Vector2(200.5, 195.5)
+shape = SubResource("RectangleShape2D_is3ju")
+
+[connection signal="body_entered" from="deathplane" to="." method="_on_deathplane_body_entered"]

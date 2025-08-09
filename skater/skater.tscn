@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://8mfge5s41c7i"]
+[gd_scene load_steps=20 format=3 uid="uid://8mfge5s41c7i"]
 
 [ext_resource type="Script" uid="uid://c1tg6qa3mnig5" path="res://skater.gd" id="1_1noyb"]
 [ext_resource type="Texture2D" uid="uid://2avdeml8mynl" path="res://assets/character-sheet.png" id="2_46ose"]
@@ -144,6 +144,27 @@ gravity = Vector3(0, 98, 0)
 scale_max = 2.0
 color = Color(0.97745, 0.744749, 3.85046e-07, 1)
 
+[sub_resource type="Curve" id="Curve_3f26f"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.507353, 1.38202), 0.0, 0.0, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wlbp2"]
+curve = SubResource("Curve_3f26f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wlbp2"]
+particle_flag_disable_z = true
+direction = Vector3(0, -90, 0)
+spread = 60.181
+initial_velocity_min = 97.7
+initial_velocity_max = 132.19
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_over_velocity_max = 344.83
+scale_over_velocity_curve = SubResource("CurveTexture_wlbp2")
+color = Color(0.103861, 0.830493, 1.11663e-05, 1)
+
 [node name="Skater" type="CharacterBody2D" groups=["skater"]]
 script = ExtResource("1_1noyb")
 
@@ -186,4 +207,14 @@ position = Vector2(-6, 1)
 emitting = false
 amount = 10
 speed_scale = 2.0
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_3f26f")
+
+[node name="death_particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_wlbp2")

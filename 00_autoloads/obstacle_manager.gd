@@ -68,3 +68,7 @@ func _calc_height_change() -> int:
 	elif level.obstacle_spawn.global_position.y + height_change < 40:
 		height_change = 40 + level.obstacle_spawn.global_position.y
 	return height_change
+
+func pause_movement() -> void:
+	level.obstacles_container.process_mode = Node.PROCESS_MODE_DISABLED
+	level.bg.process_mode = Node.PROCESS_MODE_DISABLED

@@ -6,10 +6,13 @@ class_name Skater extends CharacterBody2D
 @onready var animated_sprite: AnimationPlayer = $AnimationPlayer
 @onready var landing_sfx: AudioStreamPlayer = $LandSFX 
 @onready var skate_particles: GPUParticles2D = $skate_particles
+@onready var death_particles: GPUParticles2D = $death_particles
+@onready var sprite: Sprite2D = $Sprite2D
 
 var tricking: bool = false
 var grinding: bool = false
 var was_on_floor: bool = false
+var dead: bool = false
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -32,7 +35,8 @@ func _physics_process(delta):
 		velocity.x = 10
 	else:
 		velocity.x = 0
-	move_and_slide()
+	if !dead:
+		move_and_slide()
 	update_animation()
 	
 	if !was_on_floor and is_on_floor():
