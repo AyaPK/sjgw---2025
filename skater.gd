@@ -16,10 +16,10 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, max_fall_speed)
 	else:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("a"):
 			velocity.y = -jump_force
 
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("b"):
 		tricking = true
 
 	move_and_slide()
