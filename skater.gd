@@ -22,7 +22,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("b"):
 		tricking = true
 	
-	if global_position.x < 75:
+	if global_position.x < 100:
 		velocity.x = 10
 	else:
 		velocity.x = 0

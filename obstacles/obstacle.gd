@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
-	global_position.x -= 5
+	global_position.x -= 4
 	pass
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

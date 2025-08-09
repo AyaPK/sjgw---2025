@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Skater) -> void:
 	if body in get_tree().get_nodes_in_group("skater"):
-		body.velocity.y = -250
+		body.velocity.y = -300
