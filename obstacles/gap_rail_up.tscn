@@ -160,7 +160,6 @@ tile_set = SubResource("TileSet_m8u5f")
 modulate = Color(0, 0, 0, 0.509804)
 show_behind_parent = true
 position = Vector2(3.08095, 4.74424)
-scale = Vector2(1, 1)
 tile_map_data = PackedByteArray("AAADAP//AAAMAAQAAAAEAP//AAAOAAQAAAAFAP//AAAOAAQAAAAGAP//AAAOAAQAAAAHAP//AAAOAAQAAAAIAP//AAAOAAQAAAAJAP//AAAOAAQAAAAKAP//AAAOAAQAAAALAP//AAAOAAQAAAAMAP//AAANAAQAAAA=")
 tile_set = SubResource("TileSet_m8u5f")
 
