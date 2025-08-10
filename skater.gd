@@ -8,6 +8,7 @@ class_name Skater extends CharacterBody2D
 @onready var skate_particles: GPUParticles2D = $skate_particles
 @onready var death_particles: GPUParticles2D = $death_particles
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var dead_sfx: AudioStreamPlayer = $DeadSFX
 
 const SHADOW = preload("res://nodes/shadow.tscn")
 
@@ -76,8 +77,8 @@ func update_animation():
 
 func _stop_tricking() -> void:
 	tricking = false
-	ScoreManager.score += 25
-	
+	ScoreManager.add_score(25, "Kickflip")
+
 func play_trick_sfx() -> void:
 	pass
 
@@ -99,7 +100,6 @@ func spawn_shadow() -> void:
 	shadow.global_position.y -= 14
 	shadow.frame = sprite.frame
 
-
 func _on_shadow_timer_timeout() -> void:
-	if ObstacleManager.boosting:
+	if ObstacleManager.boosting and !dead:
 		spawn_shadow()

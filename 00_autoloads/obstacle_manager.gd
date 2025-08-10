@@ -13,7 +13,7 @@ const BOOST_SPEED_ADDITION = 3
 
 var objects_spawned: int = 0
 var last_kicker: int = 0
-var move_speed: int = BASE_MOVE_SPEED
+var move_speed: float = BASE_MOVE_SPEED
 var boosting: bool = false
 
 func _ready() -> void:
@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 		move_speed = BASE_MOVE_SPEED + BOOST_SPEED_ADDITION
 		ScoreManager.score += ScoreManager.SCORE_GAIN * 2
 	else:
-		move_speed = move_toward(move_speed, BASE_MOVE_SPEED, 0.01)
+		move_speed = move_toward(move_speed, BASE_MOVE_SPEED, 0.05)
 	pass
 
 func spawn_new_obstacle(start: bool = false) -> void:

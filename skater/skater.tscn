@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://8mfge5s41c7i"]
+[gd_scene load_steps=21 format=3 uid="uid://8mfge5s41c7i"]
 
 [ext_resource type="Script" uid="uid://c1tg6qa3mnig5" path="res://skater.gd" id="1_1noyb"]
 [ext_resource type="Texture2D" uid="uid://2avdeml8mynl" path="res://assets/character-sheet.png" id="2_46ose"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bjnokkp3ws2gj" path="res://assets/sfx/ollie.mp3" id="5_2m31k"]
 [ext_resource type="AudioStream" uid="uid://xbe726312c4f" path="res://assets/sfx/flip.mp3" id="6_8epup"]
 [ext_resource type="AudioStream" uid="uid://c1hgqnxdmerkg" path="res://assets/sfx/land.mp3" id="7_3f26f"]
+[ext_resource type="AudioStream" uid="uid://bf5pyjmxrvct" path="res://assets/sfx/explosion.wav" id="8_wlbp2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46ose"]
 size = Vector2(8, 20)
@@ -202,6 +203,9 @@ volume_db = -10.0
 [node name="LandSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_3f26f")
 volume_db = -10.0
+
+[node name="DeadSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wlbp2")
 
 [node name="skate_particles" type="GPUParticles2D" parent="."]
 position = Vector2(-6, 1)

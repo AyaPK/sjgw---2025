@@ -17,3 +17,6 @@ func _physics_process(_delta: float) -> void:
 				score += 1
 			ui.score.text = "Score: "+str(int(floor(score)))
 	pass
+
+func add_score(amount: int, description: String) -> void:
+	score += amount

@@ -5,7 +5,7 @@ class_name Level extends Node2D
 @onready var skater: Skater = $Skater
 @onready var bg: Node2D = $TileMapLayer2
 @onready var level_ui: LevelUI = $LevelUi
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var bg_audio: AudioStreamPlayer = $AudioStreamPlayer
 
 const MAIN_SONG = preload("res://assets/main_song.mp3")
 const MAIN_SONG_KICK_ONLY = preload("res://assets/main_song_kick_only.mp3")
@@ -24,8 +24,10 @@ func _on_deathplane_body_entered(body: Skater) -> void:
 		body.sprite.hide()
 		body.dead = true
 		body.death_particles.emitting = true
+		body.dead_sfx.play()
 		ScoreManager.ui.death_buttons.show()
 		ScoreManager.ui.retry.grab_focus()
 		ObstacleManager.pause_movement()
-		audio_stream_player.stop()
+		bg_audio.stream = MAIN_SONG_KICK_ONLY
+		bg_audio.play()
 		body.mute_audio()
