@@ -4,7 +4,7 @@ class_name Level extends Node2D
 @onready var obstacle_spawn: Marker2D = $Marker2D
 @onready var skater: Skater = $Skater
 @onready var bg: Node2D = $TileMapLayer2
-@onready var level_ui: CanvasLayer = $LevelUi
+@onready var level_ui: LevelUI = $LevelUi
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 const MAIN_SONG = preload("res://assets/main_song.mp3")

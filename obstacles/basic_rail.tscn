@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://c4u2wslpbt5kt"]
+[gd_scene load_steps=7 format=4 uid="uid://c4u2wslpbt5kt"]
 
 [ext_resource type="Script" uid="uid://cr4ubis2jhigg" path="res://obstacles/obstacle.gd" id="1_jr6iy"]
 [ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="2_2qa0e"]
 [ext_resource type="PackedScene" uid="uid://ciqpexjs5o1yh" path="res://nodes/grind.tscn" id="3_2qa0e"]
+[ext_resource type="PackedScene" uid="uid://b7lx67fx560gg" path="res://nodes/energy_drink.tscn" id="4_ol3gm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt17y"]
 texture = ExtResource("2_2qa0e")
@@ -164,5 +165,8 @@ position = Vector2(288, 37)
 scale = Vector2(0.1, 3.5)
 
 [node name="grind" parent="." instance=ExtResource("3_2qa0e")]
+
+[node name="EnergyDrink" parent="." instance=ExtResource("4_ol3gm")]
+position = Vector2(279, -30)
 
 [connection signal="screen_exited" from="Edge" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

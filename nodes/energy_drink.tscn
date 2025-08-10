@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7lx67fx560gg"]
+
+[ext_resource type="Script" uid="uid://bivy2dxxky12y" path="res://obstacles/energy_drink.gd" id="1_4s5a2"]
+[ext_resource type="Texture2D" uid="uid://lrrefvsfo3r7" path="res://assets/energy.png" id="2_q005n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lh21"]
+size = Vector2(8, 18)
+
+[node name="EnergyDrink" type="Node2D"]
+script = ExtResource("1_4s5a2")
+
+[node name="PickupSpot" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupSpot"]
+shape = SubResource("RectangleShape2D_7lh21")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q005n")
+
+[connection signal="body_entered" from="PickupSpot" to="." method="_on_pickup_spot_body_entered"]

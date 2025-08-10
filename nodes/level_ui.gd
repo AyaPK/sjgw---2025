@@ -1,8 +1,9 @@
-extends CanvasLayer
+class_name LevelUI extends CanvasLayer
 
 @onready var score: RichTextLabel = $Score
 @onready var retry: Button = $DeathButtons/Retry
 @onready var death_buttons: HBoxContainer = $DeathButtons
+@onready var boost_sfx: AudioStreamPlayer = $BoostSFX
 
 func _ready() -> void:
 	ScoreManager.ui = self

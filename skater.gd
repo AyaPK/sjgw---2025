@@ -9,6 +9,8 @@ class_name Skater extends CharacterBody2D
 @onready var death_particles: GPUParticles2D = $death_particles
 @onready var sprite: Sprite2D = $Sprite2D
 
+const SHADOW = preload("res://nodes/shadow.tscn")
+
 var tricking: bool = false
 var grinding: bool = false
 var was_on_floor: bool = false
@@ -44,7 +46,6 @@ func _physics_process(delta):
 	
 	if !was_on_floor and is_on_floor():
 		landing_sfx.play()
-
 	was_on_floor = is_on_floor()
 
 func update_animation():
@@ -84,3 +85,21 @@ func mute_audio() -> void:
 	$RollSFX.stop()
 	$GrindSFX.stop()
 	pass
+
+func should_spawn_shadow() -> void:
+	if ObstacleManager.boosting:
+		spawn_shadow()
+		
+
+func spawn_shadow() -> void:
+	var shadow: Shadow = SHADOW.instantiate()
+	get_parent().add_child(shadow)
+	get_parent().move_child(shadow, 2)
+	shadow.global_position = global_position
+	shadow.global_position.y -= 14
+	shadow.frame = sprite.frame
+
+
+func _on_shadow_timer_timeout() -> void:
+	if ObstacleManager.boosting:
+		spawn_shadow()

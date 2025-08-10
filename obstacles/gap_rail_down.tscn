@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bi3isxdhps4j"]
+[gd_scene load_steps=9 format=4 uid="uid://bi3isxdhps4j"]
 
 [ext_resource type="Script" uid="uid://c1f526wk6qtlb" path="res://obstacles/gap_rail.gd" id="1_cakrx"]
 [ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="2_ucnwe"]
 [ext_resource type="PackedScene" uid="uid://ciqpexjs5o1yh" path="res://nodes/grind.tscn" id="3_720lo"]
 [ext_resource type="Script" uid="uid://dunie6nw8kuod" path="res://nodes/grind_down.gd" id="4_720lo"]
+[ext_resource type="PackedScene" uid="uid://b7lx67fx560gg" path="res://nodes/energy_drink.tscn" id="5_2s1gm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt17y"]
 texture = ExtResource("2_ucnwe")
@@ -205,5 +206,8 @@ collision_layer = 16
 position = Vector2(135.835, 20.5444)
 rotation = 0.20944
 shape = SubResource("RectangleShape2D_720lo")
+
+[node name="EnergyDrink" parent="." instance=ExtResource("5_2s1gm")]
+position = Vector2(140, -2)
 
 [connection signal="screen_exited" from="Edge" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

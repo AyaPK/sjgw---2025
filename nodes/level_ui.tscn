@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://7tgst6n32p0n"]
+[gd_scene load_steps=6 format=3 uid="uid://7tgst6n32p0n"]
 
 [ext_resource type="Script" uid="uid://4qqwq0n6awk8" path="res://nodes/level_ui.gd" id="1_ijhck"]
 [ext_resource type="FontFile" uid="uid://bwbmw7rvg8oeq" path="res://assets/fonts/m5x7.ttf" id="2_bguq0"]
 [ext_resource type="Theme" uid="uid://dldyry0ytjvc4" path="res://themes/skate_button.tres" id="3_lmf4r"]
+[ext_resource type="AudioStream" uid="uid://dvk3roht4v3ko" path="res://assets/sfx/boost.wav" id="4_tx2cp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bguq0"]
 content_margin_left = 10.0
@@ -50,5 +51,8 @@ mouse_filter = 2
 theme = ExtResource("3_lmf4r")
 text = "Main Menu
 "
+
+[node name="BoostSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tx2cp")
 
 [connection signal="pressed" from="DeathButtons/Retry" to="." method="_on_retry_pressed"]

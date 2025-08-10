@@ -8,14 +8,23 @@ const BASIC_GAP = preload("res://obstacles/basic_gap.tscn")
 const GAP_RAIL_UP = preload("res://obstacles/gap_rail_up.tscn")
 const GAP_RAIL_DOWN = preload("res://obstacles/gap_rail_down.tscn")
 const KICKER = preload("res://obstacles/kicker.tscn")
+const BASE_MOVE_SPEED: int = 4
+const BOOST_SPEED_ADDITION = 3
 
 var objects_spawned: int = 0
 var last_kicker: int = 0
+var move_speed: int = BASE_MOVE_SPEED
+var boosting: bool = false
 
 func _ready() -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
+	if boosting:
+		move_speed = BASE_MOVE_SPEED + BOOST_SPEED_ADDITION
+		ScoreManager.score += ScoreManager.SCORE_GAIN * 2
+	else:
+		move_speed = move_toward(move_speed, BASE_MOVE_SPEED, 0.01)
 	pass
 
 func spawn_new_obstacle(start: bool = false) -> void:
@@ -72,3 +81,18 @@ func _calc_height_change() -> int:
 func pause_movement() -> void:
 	level.obstacles_container.process_mode = Node.PROCESS_MODE_DISABLED
 	level.bg.process_mode = Node.PROCESS_MODE_DISABLED
+
+var boost_timer: SceneTreeTimer = null
+
+func short_boost() -> void:
+	if boost_timer:
+		boost_timer.disconnect("timeout", Callable(self, "_end_boost"))
+		boost_timer = null
+	
+	boosting = true
+	boost_timer = get_tree().create_timer(2)
+	boost_timer.connect("timeout", Callable(self, "_end_boost"))
+
+func _end_boost() -> void:
+	boosting = false
+	boost_timer = null
