@@ -31,9 +31,9 @@ text = "Score: 0"
 [node name="DeathButtons" type="HBoxContainer" parent="."]
 visible = false
 offset_left = 64.0
-offset_top = 67.0
+offset_top = 93.0
 offset_right = 277.0
-offset_bottom = 143.0
+offset_bottom = 179.0
 
 [node name="Retry" type="Button" parent="DeathButtons"]
 custom_minimum_size = Vector2(75, 0)
@@ -54,5 +54,19 @@ text = "Main Menu
 
 [node name="BoostSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tx2cp")
+
+[node name="HighScores" type="HBoxContainer" parent="."]
+offset_left = 60.0
+offset_top = 23.0
+offset_right = 222.0
+offset_bottom = 104.0
+size_flags_horizontal = 3
+
+[node name="HighScoreContainer" type="VBoxContainer" parent="HighScores"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HighScoreContainer2" type="VBoxContainer" parent="HighScores"]
+layout_mode = 2
 
 [connection signal="pressed" from="DeathButtons/Retry" to="." method="_on_retry_pressed"]

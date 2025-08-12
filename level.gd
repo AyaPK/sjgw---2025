@@ -25,9 +25,8 @@ func _on_deathplane_body_entered(body: Skater) -> void:
 		body.dead = true
 		body.death_particles.emitting = true
 		body.dead_sfx.play()
-		ScoreManager.ui.death_buttons.show()
-		ScoreManager.ui.retry.grab_focus()
-		ObstacleManager.pause_movement()
 		bg_audio.stream = MAIN_SONG_KICK_ONLY
 		bg_audio.play()
 		body.mute_audio()
+		ScoreManager.ui.show_death_ui()
+		ObstacleManager.pause_movement()
