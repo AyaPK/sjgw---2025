@@ -15,6 +15,8 @@ func _ready() -> void:
 	ObstacleManager.spawn_starting_obstacles()
 	ScoreManager.ui.show()
 	ScoreManager.score = 0
+	ScoreManager.score_mult = 1
+	ScoreManager.base_score_mult = 1
 
 func _process(_delta: float) -> void:
 	pass

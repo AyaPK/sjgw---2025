@@ -89,6 +89,7 @@ func short_boost() -> void:
 		boost_timer.disconnect("timeout", Callable(self, "_end_boost"))
 		boost_timer = null
 	
+	ScoreManager.score_mult = 4
 	boosting = true
 	boost_timer = get_tree().create_timer(2)
 	boost_timer.connect("timeout", Callable(self, "_end_boost"))
@@ -96,3 +97,4 @@ func short_boost() -> void:
 func _end_boost() -> void:
 	boosting = false
 	boost_timer = null
+	ScoreManager.score_mult = ScoreManager.base_score_mult

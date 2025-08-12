@@ -5,6 +5,8 @@ const SCORE_GAIN: float = 0.1
 var skater: Skater
 var ui: CanvasLayer
 var score: float
+var score_mult: int
+var base_score_mult: int
 
 var high_scores: HighScores
 
@@ -21,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 func add_score(amount: int, description: String) -> void:
-	score += amount
+	score += (amount * score_mult)
 
 func add_high_score(name: String, score: int) -> void:
 	var scores_array = []
