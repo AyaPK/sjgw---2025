@@ -24,6 +24,7 @@ func show_death_ui() -> void:
 	ScoreManager.ui.death_buttons.show()
 	ScoreManager.ui.retry.grab_focus()
 	ScoreManager.ui.show_high_scores()
+	ScoreManager.high_scores.save()
 
 func show_high_scores() -> void:
 	for child in high_score_container.get_children():

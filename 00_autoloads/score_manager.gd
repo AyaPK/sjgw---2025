@@ -36,6 +36,7 @@ func add_high_score(name: String, score: int) -> void:
 	
 	for i in range(scores_array.size()):
 		high_scores.high_scores["Slot%d" % (i + 1)] = [scores_array[i]["name"], scores_array[i]["score"]]
+	
 
 
 func is_high_score(score_to_check: int) -> bool:
