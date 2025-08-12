@@ -77,7 +77,7 @@ func update_animation():
 
 func _stop_tricking() -> void:
 	tricking = false
-	ScoreManager.add_score(25, "Kickflip")
+	ScoreManager.add_score(25, animated_sprite.current_animation)
 
 func play_trick_sfx() -> void:
 	pass
@@ -85,12 +85,10 @@ func play_trick_sfx() -> void:
 func mute_audio() -> void:
 	$RollSFX.stop()
 	$GrindSFX.stop()
-	pass
 
 func should_spawn_shadow() -> void:
 	if ObstacleManager.boosting:
 		spawn_shadow()
-		
 
 func spawn_shadow() -> void:
 	var shadow: Shadow = SHADOW.instantiate()
@@ -103,3 +101,4 @@ func spawn_shadow() -> void:
 func _on_shadow_timer_timeout() -> void:
 	if ObstacleManager.boosting and !dead:
 		spawn_shadow()
+ 
