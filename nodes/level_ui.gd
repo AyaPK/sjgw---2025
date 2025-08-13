@@ -20,11 +20,18 @@ func _on_retry_pressed() -> void:
 	get_tree().change_scene_to_file("res://playground.tscn")
 
 func show_death_ui() -> void:
-	ScoreManager.add_high_score("Aya", ScoreManager.score)
-	ScoreManager.ui.death_buttons.show()
-	ScoreManager.ui.retry.grab_focus()
-	ScoreManager.ui.show_high_scores()
-	ScoreManager.high_scores.save()
+	if ScoreManager.is_high_score(ScoreManager.score):
+		show_name_input()
+	else:
+		ScoreManager.ui.death_buttons.show()
+		ScoreManager.ui.retry.grab_focus()
+		ScoreManager.ui.show_high_scores()
+
+func show_name_input() -> void:
+	$NameInput.show()
+	$NameInput.is_active = true
+	$NameLabel1.show()
+	$NameLabel2.show()
 
 func show_high_scores() -> void:
 	for child in high_score_container.get_children():
@@ -49,3 +56,13 @@ func _load_score_to_slot(slot: String) -> Label:
 		spacer = "  "
 	label.text = slot+"."+spacer+score[0]+" - "+str(score[1])
 	return label
+
+func _on_name_input_name_confirmed() -> void:
+	$NameInput.hide()
+	$NameLabel1.hide()
+	$NameLabel2.hide()
+	ScoreManager.add_high_score("".join($NameInput.player_name), ScoreManager.score)
+	ScoreManager.ui.death_buttons.show()
+	ScoreManager.ui.retry.grab_focus()
+	ScoreManager.ui.show_high_scores()
+	ScoreManager.high_scores.save()

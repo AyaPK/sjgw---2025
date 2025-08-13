@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqpis36b7dqh2"]
 
-[ext_resource type="Script" uid="uid://vly27io7a4md" path="res://nodes/shadow.gd" id="1_fyye6"]
+[ext_resource type="Script" path="res://nodes/shadow.gd" id="1_fyye6"]
 [ext_resource type="Texture2D" uid="uid://2avdeml8mynl" path="res://assets/character-sheet.png" id="1_iaxrn"]
 
 [node name="Shadow" type="Sprite2D"]

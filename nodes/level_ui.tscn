@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://7tgst6n32p0n"]
+[gd_scene load_steps=7 format=3 uid="uid://7tgst6n32p0n"]
 
 [ext_resource type="Script" uid="uid://4qqwq0n6awk8" path="res://nodes/level_ui.gd" id="1_ijhck"]
 [ext_resource type="FontFile" uid="uid://bwbmw7rvg8oeq" path="res://assets/fonts/m5x7.ttf" id="2_bguq0"]
 [ext_resource type="Theme" uid="uid://dldyry0ytjvc4" path="res://themes/skate_button.tres" id="3_lmf4r"]
 [ext_resource type="AudioStream" uid="uid://dvk3roht4v3ko" path="res://assets/sfx/boost.wav" id="4_tx2cp"]
+[ext_resource type="PackedScene" uid="uid://dxh0s0w5nuwyl" path="res://nodes/name_input.tscn" id="5_gaa0c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bguq0"]
 content_margin_left = 10.0
@@ -56,6 +57,7 @@ text = "Main Menu
 stream = ExtResource("4_tx2cp")
 
 [node name="HighScores" type="HBoxContainer" parent="."]
+visible = false
 offset_left = 60.0
 offset_top = 23.0
 offset_right = 222.0
@@ -69,4 +71,31 @@ size_flags_horizontal = 3
 [node name="HighScoreContainer2" type="VBoxContainer" parent="HighScores"]
 layout_mode = 2
 
+[node name="NameInput" parent="." instance=ExtResource("5_gaa0c")]
+visible = false
+position = Vector2(114, 64)
+
+[node name="NameLabel1" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 17.0
+offset_right = 376.0
+offset_bottom = 71.0
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("2_bguq0")
+theme_override_font_sizes/normal_font_size = 36
+text = " NEW HIGH SCORE"
+
+[node name="NameLabel2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 36.0
+offset_top = 117.0
+offset_right = 268.0
+offset_bottom = 171.0
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("2_bguq0")
+theme_override_font_sizes/normal_font_size = 36
+text = " ENTER YOUR NAME"
+
 [connection signal="pressed" from="DeathButtons/Retry" to="." method="_on_retry_pressed"]
+[connection signal="name_confirmed" from="NameInput" to="." method="_on_name_input_name_confirmed"]
