@@ -44,7 +44,6 @@ func _update_display() -> void:
 	$PlayerName/Char2.text = player_name[1]
 	$PlayerName/Char3.text = player_name[2]
 	
-	var location: float
 	if current_pos == 0:
 		$PlayerName/Arrows.global_position.x = $PlayerName/Char1.global_position.x + 8
 	if current_pos == 1:
@@ -54,6 +53,5 @@ func _update_display() -> void:
 
 
 func _confirm_name() -> void:
-	var final_name := "".join(player_name)
 	is_active = false
 	name_confirmed.emit()

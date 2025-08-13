@@ -20,7 +20,7 @@ func _on_retry_pressed() -> void:
 	get_tree().change_scene_to_file("res://playground.tscn")
 
 func show_death_ui() -> void:
-	if ScoreManager.is_high_score(ScoreManager.score):
+	if ScoreManager.is_high_score(floor(ScoreManager.score)):
 		show_name_input()
 	else:
 		ScoreManager.ui.death_buttons.show()
@@ -48,6 +48,7 @@ func show_high_scores() -> void:
 
 func _load_score_to_slot(slot: String) -> Label:
 	var label: Label = HIGH_SCORE_LABEL.instantiate()
+	@warning_ignore("shadowed_variable")
 	var score: Array = ScoreManager.high_scores.high_scores["Slot"+slot]
 	var spacer: String
 	if slot == "10":
@@ -61,7 +62,7 @@ func _on_name_input_name_confirmed() -> void:
 	$NameInput.hide()
 	$NameLabel1.hide()
 	$NameLabel2.hide()
-	ScoreManager.add_high_score("".join($NameInput.player_name), ScoreManager.score)
+	ScoreManager.add_high_score("".join($NameInput.player_name), int(floor(ScoreManager.score)))
 	ScoreManager.ui.death_buttons.show()
 	ScoreManager.ui.retry.grab_focus()
 	ScoreManager.ui.show_high_scores()

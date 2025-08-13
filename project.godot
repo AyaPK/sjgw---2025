@@ -27,6 +27,7 @@ ScoreManager="*res://00_autoloads/score_manager.gd"
 
 window/size/viewport_width=576
 window/size/viewport_height=324
+window/size/borderless=true
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"

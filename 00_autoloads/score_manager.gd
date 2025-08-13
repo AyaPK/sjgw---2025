@@ -25,14 +25,15 @@ func _physics_process(_delta: float) -> void:
 func add_score(amount: int, description: String) -> void:
 	score += (amount * score_mult)
 
-func add_high_score(name: String, score: int) -> void:
+@warning_ignore("shadowed_variable")
+func add_high_score(player_name: String, score: int) -> void:
 	var scores_array = []
 	
 	for key in high_scores.high_scores.keys():
 		var entry = high_scores.high_scores[key]
 		scores_array.append({"name": entry[0], "score": entry[1]})
 	
-	scores_array.append({"name": name, "score": score})
+	scores_array.append({"name": player_name, "score": score})
 	scores_array.sort_custom(func(a, b): return b["score"] < a["score"])
 	scores_array = scores_array.slice(0, 10)
 	
