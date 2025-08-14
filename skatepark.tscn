@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4y7mpkcbgnnv"]
 
-[ext_resource type="Script" uid="uid://dxq2sfc3ul8wt" path="res://level.gd" id="1_is3ju"]
-[ext_resource type="PackedScene" uid="uid://dx1yysfkocu4r" path="res://nodes/background.tscn" id="2_is3ju"]
-[ext_resource type="PackedScene" uid="uid://8mfge5s41c7i" path="res://skater/skater.tscn" id="2_wt17y"]
-[ext_resource type="PackedScene" uid="uid://7tgst6n32p0n" path="res://nodes/level_ui.tscn" id="5_4bqqs"]
-[ext_resource type="AudioStream" uid="uid://8ahn8632u1ub" path="res://assets/main_song.mp3" id="5_o00ia"]
+[ext_resource type="Script" uid="uid://dxq2sfc3ul8wt" path="res://level.gd" id="1_1q8cr"]
+[ext_resource type="PackedScene" uid="uid://dx1yysfkocu4r" path="res://nodes/background.tscn" id="2_f1lcd"]
+[ext_resource type="PackedScene" uid="uid://8mfge5s41c7i" path="res://skater/skater.tscn" id="3_t2eso"]
+[ext_resource type="AudioStream" uid="uid://8ahn8632u1ub" path="res://assets/main_song.mp3" id="4_3kcqb"]
+[ext_resource type="PackedScene" uid="uid://7tgst6n32p0n" path="res://nodes/level_ui.tscn" id="5_36fgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is3ju"]
 size = Vector2(841, 15)
 
-[node name="Playground" type="Node2D" groups=["level"]]
-script = ExtResource("1_is3ju")
+[node name="Skatepark" type="Node2D" groups=["level"]]
+script = ExtResource("1_1q8cr")
 
-[node name="TileMapLayer2" parent="." instance=ExtResource("2_is3ju")]
+[node name="TileMapLayer2" parent="." instance=ExtResource("2_f1lcd")]
 process_mode = 3
 
 [node name="ObstaclesContainer" type="Node2D" parent="."]
 process_mode = 3
 
-[node name="Skater" parent="." instance=ExtResource("2_wt17y")]
-position = Vector2(75, 70)
+[node name="Skater" parent="." instance=ExtResource("3_t2eso")]
+position = Vector2(-14, 71)
 collision_mask = 16
 jump_force = 200.0
 
@@ -27,7 +27,7 @@ jump_force = 200.0
 position = Vector2(306, 105)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_o00ia")
+stream = ExtResource("4_3kcqb")
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -46,7 +46,7 @@ rotation = 1.5708
 position = Vector2(95, 37)
 shape = SubResource("RectangleShape2D_is3ju")
 
-[node name="LevelUi" parent="." instance=ExtResource("5_4bqqs")]
+[node name="LevelUi" parent="." instance=ExtResource("5_36fgu")]
 
 [connection signal="body_entered" from="deathplane" to="." method="_on_deathplane_body_entered"]
 [connection signal="body_entered" from="deathplane2" to="." method="_on_deathplane_body_entered"]

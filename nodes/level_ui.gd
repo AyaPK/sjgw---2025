@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_retry_pressed() -> void:
-	get_tree().change_scene_to_file("res://playground.tscn")
+	get_tree().change_scene_to_file("res://skatepark.tscn")
 
 func show_death_ui() -> void:
 	if ScoreManager.is_high_score(floor(ScoreManager.score)):
@@ -67,3 +67,7 @@ func _on_name_input_name_confirmed() -> void:
 	ScoreManager.ui.retry.grab_focus()
 	ScoreManager.ui.show_high_scores()
 	ScoreManager.high_scores.save()
+
+
+func _on_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_menu.tscn")

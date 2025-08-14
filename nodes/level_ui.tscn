@@ -98,4 +98,5 @@ theme_override_font_sizes/normal_font_size = 36
 text = " ENTER YOUR NAME"
 
 [connection signal="pressed" from="DeathButtons/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="DeathButtons/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="name_confirmed" from="NameInput" to="." method="_on_name_input_name_confirmed"]
