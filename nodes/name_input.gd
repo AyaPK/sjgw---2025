@@ -13,6 +13,7 @@ var is_active: bool = false
 signal name_confirmed
 
 func _ready():
+	$PlayerName/Arrows.play()
 	_update_display()
 
 func _unhandled_input(event: InputEvent) -> void:

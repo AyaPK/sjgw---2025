@@ -1,16 +1,16 @@
 class_name HighScores extends Resource
 
 @export var high_scores: Dictionary = {
-	"Slot1": ["---", 0],
-	"Slot2": ["---", 0],
-	"Slot3": ["---", 0],
-	"Slot4": ["---", 0],
-	"Slot5": ["---", 0],
-	"Slot6": ["---", 0],
-	"Slot7": ["---", 0],
-	"Slot8": ["---", 0],
-	"Slot9": ["---", 0],
-	"Slot10": ["---", 0],
+	"Slot1": ["SOF", 1000],
+	"Slot2": ["TJA", 900],
+	"Slot3": ["M G", 800],
+	"Slot4": ["AME", 700],
+	"Slot5": ["WIR", 600],
+	"Slot6": ["E25 ", 500],
+	"Slot7": ["POG", 400],
+	"Slot8": ["BY ", 300],
+	"Slot9": ["AYA", 200],
+	"Slot10": ["OOF", 100],
 }
 
 const SAVE_PATH: String = "user://high_scores.tres"

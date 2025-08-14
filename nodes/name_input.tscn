@@ -1,8 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxh0s0w5nuwyl"]
+[gd_scene load_steps=9 format=3 uid="uid://dxh0s0w5nuwyl"]
 
 [ext_resource type="Script" uid="uid://cnsero6iaqmxo" path="res://nodes/name_input.gd" id="1_6nqgh"]
 [ext_resource type="FontFile" uid="uid://bwbmw7rvg8oeq" path="res://assets/fonts/m5x7.ttf" id="2_y0fum"]
-[ext_resource type="Texture2D" uid="uid://b14e5qdqprdo2" path="res://assets/char_arrows.png" id="3_w5r0w"]
+[ext_resource type="Texture2D" uid="uid://cjiwqy313jdg7" path="res://assets/char_arrows_anim1.png" id="3_03ybx"]
+[ext_resource type="Texture2D" uid="uid://qxhnmt14duyo" path="res://assets/char_arrows_anim2.png" id="4_f5aqg"]
+[ext_resource type="Texture2D" uid="uid://cpsuirw8ay0ea" path="res://assets/char_arrows_anim3.png" id="5_8brwr"]
+[ext_resource type="Texture2D" uid="uid://ytiflkbsxpdo" path="res://assets/char_arrows_anim4.png" id="6_rg1wv"]
+[ext_resource type="Texture2D" uid="uid://caakne6q3t8ch" path="res://assets/char_arrows_anim5.png" id="7_lk2ej"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7aiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_03ybx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f5aqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8brwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rg1wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lk2ej")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="NameInput" type="Node2D"]
 script = ExtResource("1_6nqgh")
@@ -32,6 +59,7 @@ theme_override_fonts/font = ExtResource("2_y0fum")
 theme_override_font_sizes/font_size = 44
 text = "A"
 
-[node name="Arrows" type="Sprite2D" parent="PlayerName"]
-position = Vector2(7, 21)
-texture = ExtResource("3_w5r0w")
+[node name="Arrows" type="AnimatedSprite2D" parent="PlayerName"]
+position = Vector2(7, 20)
+sprite_frames = SubResource("SpriteFrames_m7aiw")
+frame_progress = 0.153476
