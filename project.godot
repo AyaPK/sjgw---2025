@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 run/low_processor_mode=true
 run/delta_smoothing=false
+boot_splash/image="uid://m6o0revsmup3"
 config/icon="res://icon.svg"
 
 [autoload]
