@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://3v0rt6kxynms"]
+[gd_scene load_steps=6 format=3 uid="uid://b61ebt7kmkbgu"]
 
 [ext_resource type="Theme" uid="uid://dldyry0ytjvc4" path="res://themes/skate_button.tres" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://ddiv7fq0nl00w" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://i4uwjr7b42g5" path="res://assets/skamte.png" id="2_7vrkn"]
 [ext_resource type="PackedScene" uid="uid://dx1yysfkocu4r" path="res://nodes/background.tscn" id="2_jix8l"]
 [ext_resource type="PackedScene" uid="uid://dpvuqtirhlk7i" path="res://obstacles/flat_ground.tscn" id="3_glbon"]
@@ -42,6 +42,12 @@ mouse_filter = 2
 theme = ExtResource("1_06t4h")
 button_mask = 0
 text = "Exit Game"
+
+[node name="Logo2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.572549)
+texture_filter = 5
+position = Vector2(150, 29)
+texture = ExtResource("2_7vrkn")
 
 [node name="Logo" type="Sprite2D" parent="."]
 texture_filter = 5

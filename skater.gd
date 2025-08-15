@@ -13,6 +13,7 @@ class_name Skater extends CharacterBody2D
 const SHADOW = preload("res://nodes/shadow.tscn")
 
 var tricking: bool = false
+var trick_selected: bool = false
 var grinding: bool = false
 var was_on_floor: bool = false
 var dead: bool = false
@@ -51,11 +52,27 @@ func _physics_process(delta):
 
 func update_animation():
 	if tricking:
-		animated_sprite.play("kickflip")
+		if !trick_selected:
+			if Input.is_action_pressed("move_left"):
+				animated_sprite.play("shuvit")
+				trick_selected = true
+			elif Input.is_action_pressed("move_down"):
+				animated_sprite.play("varial flip")
+				trick_selected = true
+			elif Input.is_action_pressed("move_up"):
+				animated_sprite.play("heelflip")
+				trick_selected = true
+			elif Input.is_action_pressed("move_right"):
+				animated_sprite.play("hardflip")
+				trick_selected = true
+			else:
+				animated_sprite.play("kickflip")
+				trick_selected = true
 		if !is_on_floor():
 			return
 		else:
 			tricking = false
+			trick_selected = false
 	
 	if not is_on_floor():
 		$RollSFX.stop()
@@ -77,6 +94,7 @@ func update_animation():
 
 func _stop_tricking() -> void:
 	tricking = false
+	trick_selected = false
 	ScoreManager.add_score(25, animated_sprite.current_animation)
 
 func play_trick_sfx() -> void:

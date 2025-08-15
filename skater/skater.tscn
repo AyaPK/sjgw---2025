@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8mfge5s41c7i"]
+[gd_scene load_steps=25 format=3 uid="uid://8mfge5s41c7i"]
 
 [ext_resource type="Script" uid="uid://c1tg6qa3mnig5" path="res://skater.gd" id="1_1noyb"]
 [ext_resource type="Texture2D" uid="uid://2avdeml8mynl" path="res://assets/character-sheet.png" id="2_46ose"]
@@ -92,8 +92,74 @@ tracks/0/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_wlbp2"]
+resource_name = "shuvit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_trick_sfx"
+}, {
+"args": [],
+"method": &"_stop_tricking"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fian3"]
+resource_name = "varial flip"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 12, 13, 14, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_trick_sfx"
+}, {
+"args": [],
+"method": &"_stop_tricking"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_3f26f"]
-resource_name = "kickflip"
+resource_name = "heelflip"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -125,14 +191,84 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_hc387"]
+resource_name = "kickflip"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 3, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_trick_sfx"
+}, {
+"args": [],
+"method": &"_stop_tricking"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vmgv2"]
+resource_name = "hardflip"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 15, 16, 17, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_trick_sfx"
+}, {
+"args": [],
+"method": &"_stop_tricking"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdj87"]
 _data = {
 &"RESET": SubResource("Animation_e0iiw"),
 &"fall": SubResource("Animation_2m31k"),
 &"grind": SubResource("Animation_8epup"),
+&"hardflip": SubResource("Animation_vmgv2"),
+&"heelflip": SubResource("Animation_3f26f"),
 &"idle": SubResource("Animation_46ose"),
 &"jump": SubResource("Animation_wdj87"),
-&"kickflip": SubResource("Animation_3f26f")
+&"kickflip": SubResource("Animation_hc387"),
+&"shuvit": SubResource("Animation_wlbp2"),
+&"varial flip": SubResource("Animation_fian3")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3f26f"]
@@ -173,7 +309,7 @@ script = ExtResource("1_1noyb")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -14)
 texture = ExtResource("2_46ose")
-hframes = 12
+hframes = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

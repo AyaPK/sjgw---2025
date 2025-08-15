@@ -6,7 +6,7 @@
 [node name="Shadow" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.313726)
 texture = ExtResource("1_iaxrn")
-hframes = 12
+hframes = 18
 script = ExtResource("1_fyye6")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
