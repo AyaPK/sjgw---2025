@@ -23,10 +23,8 @@ func _physics_process(_delta: float) -> void:
 			ui.score.text = "Score: "+str(int(floor(score)))
 	pass
 
-
 func add_score(amount: int, description: String) -> void:
 	score += (amount * score_mult)
-	ui.show_score_anim(description+" "+"+"+str(amount))
 
 @warning_ignore("shadowed_variable")
 func add_high_score(player_name: String, score: int) -> void:
@@ -42,8 +40,6 @@ func add_high_score(player_name: String, score: int) -> void:
 	
 	for i in range(scores_array.size()):
 		high_scores.high_scores["Slot%d" % (i + 1)] = [scores_array[i]["name"], scores_array[i]["score"]]
-	
-
 
 func is_high_score(score_to_check: int) -> bool:
 	var scores_array = []

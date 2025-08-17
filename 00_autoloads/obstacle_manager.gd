@@ -15,6 +15,7 @@ var objects_spawned: int = 0
 var last_kicker: int = 0
 var move_speed: float = BASE_MOVE_SPEED
 var boosting: bool = false
+var spawn_energy_drinks: bool = false
 
 func _ready() -> void:
 	pass
@@ -64,11 +65,13 @@ func spawn_new_obstacle(start: bool = false) -> void:
 	objects_spawned += 1
 
 func spawn_starting_obstacles():
+	spawn_energy_drinks = false
 	var flat_ground: Obstacle = FLAT_GROUND.instantiate()
 	level.obstacles_container.add_child(flat_ground)
 	flat_ground.global_position = Vector2(0, level.obstacle_spawn.global_position.y)
 	for _i in range(0, 10):
 		spawn_new_obstacle(true)
+	spawn_energy_drinks = true
 	
 func _calc_height_change() -> int:
 	var height_change = randi_range(-20, 20)

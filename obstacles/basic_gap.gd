@@ -11,3 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+func _on_gap_clear_body_entered(body: Node2D) -> void:
+	if body in get_tree().get_nodes_in_group("skater"):
+		ScoreManager.add_score(15, "Gap Cleared")

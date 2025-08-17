@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://7tgst6n32p0n"]
+[gd_scene load_steps=7 format=3 uid="uid://7tgst6n32p0n"]
 
 [ext_resource type="Script" uid="uid://4qqwq0n6awk8" path="res://nodes/level_ui.gd" id="1_ijhck"]
 [ext_resource type="FontFile" uid="uid://bwbmw7rvg8oeq" path="res://assets/fonts/m5x7.ttf" id="2_bguq0"]
 [ext_resource type="Theme" uid="uid://dldyry0ytjvc4" path="res://themes/skate_button.tres" id="3_lmf4r"]
 [ext_resource type="AudioStream" uid="uid://dvk3roht4v3ko" path="res://assets/sfx/boost.wav" id="4_tx2cp"]
 [ext_resource type="PackedScene" uid="uid://dxh0s0w5nuwyl" path="res://nodes/name_input.tscn" id="5_gaa0c"]
-[ext_resource type="PackedScene" uid="uid://cpys78gvbjves" path="res://nodes/score_added.tscn" id="6_lp5yv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bguq0"]
 content_margin_left = 10.0
@@ -97,21 +96,6 @@ theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("2_bguq0")
 theme_override_font_sizes/normal_font_size = 36
 text = " ENTER YOUR NAME"
-
-[node name="ScoreAdded" parent="." instance=ExtResource("6_lp5yv")]
-position = Vector2(0, 6)
-
-[node name="ScoreAdded2" parent="." instance=ExtResource("6_lp5yv")]
-position = Vector2(0, 6)
-
-[node name="ScoreAdded3" parent="." instance=ExtResource("6_lp5yv")]
-position = Vector2(0, 6)
-
-[node name="ScoreAdded4" parent="." instance=ExtResource("6_lp5yv")]
-position = Vector2(0, 6)
-
-[node name="ScoreAdded5" parent="." instance=ExtResource("6_lp5yv")]
-position = Vector2(0, 6)
 
 [connection signal="pressed" from="DeathButtons/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="DeathButtons/MainMenu" to="." method="_on_main_menu_pressed"]

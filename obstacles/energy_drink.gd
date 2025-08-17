@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var appear: bool = randi_range(0, 20) <= 2
-	if !appear:
+	if !appear or !ObstacleManager.spawn_energy_drinks:
 		queue_free()
 	pass # Replace with function body.
 

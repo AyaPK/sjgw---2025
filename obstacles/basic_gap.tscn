@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://duljg332xaoi"]
+[gd_scene load_steps=7 format=4 uid="uid://duljg332xaoi"]
 
 [ext_resource type="Script" uid="uid://ckrsc8r5lwc80" path="res://obstacles/basic_gap.gd" id="1_3vp8a"]
 [ext_resource type="Texture2D" uid="uid://o4t5hfwrqycf" path="res://assets/tilemap.png" id="2_glufs"]
@@ -145,6 +145,9 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 16
 sources/0 = SubResource("TileSetAtlasSource_wt17y")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glufs"]
+size = Vector2(20, 105)
+
 [node name="Node2D" type="Node2D" groups=["obstacles"]]
 script = ExtResource("1_3vp8a")
 
@@ -177,4 +180,11 @@ scale = Vector2(0.1, 3.6)
 [node name="EnergyDrink" parent="." instance=ExtResource("3_glufs")]
 position = Vector2(122, -30)
 
+[node name="GapClear" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GapClear"]
+position = Vector2(157, -52.5)
+shape = SubResource("RectangleShape2D_glufs")
+
 [connection signal="screen_exited" from="Edge" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="GapClear" to="." method="_on_gap_clear_body_entered"]
