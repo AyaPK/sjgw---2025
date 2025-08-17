@@ -14,6 +14,7 @@ func _ready() -> void:
 	ScoreManager.ui = self
 
 func _process(_delta: float) -> void:
+	print(len(get_tree().get_nodes_in_group("score_popups_hidden")))
 	pass
 
 func _on_retry_pressed() -> void:
@@ -68,6 +69,12 @@ func _on_name_input_name_confirmed() -> void:
 	ScoreManager.ui.show_high_scores()
 	ScoreManager.high_scores.save()
 
-
 func _on_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+func show_score_anim(text_to_show: String) -> void:
+	var score_display: ScoreAdded = get_tree().get_first_node_in_group("score_popups_hidden")
+	score_display.remove_from_group("score_popups_hidden")
+	score_display.add_to_group("score_popups_showing")
+	score_display.score.text = text_to_show
+	score_display.animation.play("add_score")

@@ -10,6 +10,7 @@ var base_score_mult: int
 
 var high_scores: HighScores
 
+
 func _ready() -> void:
 	high_scores = HighScores.load_or_create()
 
@@ -23,9 +24,9 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 
-
 func add_score(amount: int, description: String) -> void:
 	score += (amount * score_mult)
+	ui.show_score_anim(description+" "+"+"+str(amount))
 
 @warning_ignore("shadowed_variable")
 func add_high_score(player_name: String, score: int) -> void:

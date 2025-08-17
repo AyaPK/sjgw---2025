@@ -41,6 +41,8 @@ window/dpi/allow_hidpi=false
 obstacles=""
 level=""
 skater=""
+score_popups_hidden=""
+score_popups_showing=""
 
 [input]
 
