@@ -1,13 +1,118 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4y7mpkcbgnnv"]
+[gd_scene load_steps=16 format=3 uid="uid://b4y7mpkcbgnnv"]
 
 [ext_resource type="Script" uid="uid://dxq2sfc3ul8wt" path="res://level.gd" id="1_1q8cr"]
 [ext_resource type="PackedScene" uid="uid://dx1yysfkocu4r" path="res://nodes/background.tscn" id="2_f1lcd"]
 [ext_resource type="PackedScene" uid="uid://8mfge5s41c7i" path="res://skater/skater.tscn" id="3_t2eso"]
 [ext_resource type="AudioStream" uid="uid://8ahn8632u1ub" path="res://assets/main_song.mp3" id="4_3kcqb"]
 [ext_resource type="PackedScene" uid="uid://7tgst6n32p0n" path="res://nodes/level_ui.tscn" id="5_36fgu"]
+[ext_resource type="FontFile" uid="uid://bwbmw7rvg8oeq" path="res://assets/fonts/m5x7.ttf" id="6_f1lcd"]
+[ext_resource type="Texture2D" uid="uid://70lhuxofvolu" path="res://assets/inputs.png" id="7_t2eso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is3ju"]
 size = Vector2(841, 15)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1lcd"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+
+[sub_resource type="Animation" id="Animation_f1lcd"]
+resource_name = "fade"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 8.1, 9.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../InputPrompts:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 8.1, 9.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t2eso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../InputPrompts:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2eso"]
+_data = {
+&"RESET": SubResource("Animation_t2eso"),
+&"fade": SubResource("Animation_f1lcd")
+}
+
+[sub_resource type="Animation" id="Animation_3kcqb"]
+resource_name = "wiggle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_36fgu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36fgu"]
+_data = {
+&"RESET": SubResource("Animation_36fgu"),
+&"wiggle": SubResource("Animation_3kcqb")
+}
 
 [node name="Skatepark" type="Node2D" groups=["level"]]
 script = ExtResource("1_1q8cr")
@@ -49,5 +154,79 @@ shape = SubResource("RectangleShape2D_is3ju")
 
 [node name="LevelUi" parent="." instance=ExtResource("5_36fgu")]
 
+[node name="Score" type="RichTextLabel" parent="."]
+offset_left = -15.0
+offset_top = 121.0
+offset_right = 65.0
+offset_bottom = 198.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.486275)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("6_f1lcd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f1lcd")
+bbcode_enabled = true
+text = "Jump:
+Trick:
+Modify trick:"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Score"]
+libraries = {
+&"": SubResource("AnimationLibrary_t2eso")
+}
+autoplay = "fade"
+
+[node name="InputPrompts" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="InputPrompts"]
+position = Vector2(78, 138)
+texture = ExtResource("7_t2eso")
+hframes = 4
+vframes = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="InputPrompts"]
+position = Vector2(94, 137)
+texture = ExtResource("7_t2eso")
+hframes = 4
+vframes = 4
+frame = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="InputPrompts"]
+position = Vector2(78, 154)
+texture = ExtResource("7_t2eso")
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="Sprite2D4" type="Sprite2D" parent="InputPrompts"]
+position = Vector2(94, 153)
+texture = ExtResource("7_t2eso")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Sprite2D5" type="Sprite2D" parent="InputPrompts"]
+position = Vector2(78, 169)
+texture = ExtResource("7_t2eso")
+hframes = 4
+vframes = 4
+frame = 12
+
+[node name="Sprite2D6" type="Sprite2D" parent="InputPrompts"]
+position = Vector2(93, 169)
+texture = ExtResource("7_t2eso")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InputPrompts/Sprite2D6"]
+libraries = {
+&"": SubResource("AnimationLibrary_36fgu")
+}
+autoplay = "wiggle"
+
 [connection signal="body_entered" from="deathplane" to="." method="_on_deathplane_body_entered"]
 [connection signal="body_entered" from="deathplane2" to="." method="_on_deathplane_body_entered"]
+[connection signal="animation_finished" from="Score/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

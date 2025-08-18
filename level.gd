@@ -32,3 +32,7 @@ func _on_deathplane_body_entered(body: Skater) -> void:
 		body.mute_audio()
 		ScoreManager.ui.show_death_ui()
 		ObstacleManager.pause_movement()
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	$Score.queue_free()
+	$InputPrompts.queue_free()
