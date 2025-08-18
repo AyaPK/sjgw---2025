@@ -7,7 +7,6 @@ extends Node2D
 const HIGH_SCORE_LABEL = preload("res://nodes/high_score_label.tscn")
 
 func _ready() -> void:
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	$VBoxContainer/Start.grab_focus()
 	show_high_scores()
 

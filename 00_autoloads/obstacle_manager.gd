@@ -18,7 +18,8 @@ var boosting: bool = false
 var spawn_energy_drinks: bool = false
 
 func _ready() -> void:
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if OS.get_name() == "Windows":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _physics_process(_delta: float) -> void:
 	if boosting:
