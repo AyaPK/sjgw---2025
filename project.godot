@@ -10,14 +10,15 @@ config_version=5
 
 [application]
 
-config/name="SJGW - 2025"
+config/name="SKAMTE"
 run/main_scene="uid://b61ebt7kmkbgu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 run/low_processor_mode=true
 run/delta_smoothing=false
 boot_splash/image="uid://m6o0revsmup3"
-config/icon="res://icon.svg"
+config/icon="uid://dj4u26puhimk8"
+config/windows_native_icon="res://assets/skamte.ico"
 
 [autoload]
 
