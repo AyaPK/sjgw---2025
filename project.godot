@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 ObstacleManager="*res://00_autoloads/obstacle_manager.gd"
 ScoreManager="*res://00_autoloads/score_manager.gd"
+Uisfx="*res://00_autoloads/uisfx.gd"
 
 [display]
 

@@ -28,6 +28,7 @@ position = Vector2(306, 105)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3kcqb")
+volume_db = -1.874
 autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
