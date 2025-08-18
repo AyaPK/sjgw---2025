@@ -46,3 +46,19 @@ func _on_start_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_credits_pressed() -> void:
+	$VBoxContainer.hide()
+	$HighScores.hide()
+	$Credits.show()
+	$backbutton.show()
+	$backbutton.grab_focus()
+
+
+func _on_backbutton_pressed() -> void:
+	$Credits.hide()
+	$backbutton.hide()
+	$VBoxContainer.show()
+	$HighScores.show()
+	$VBoxContainer/Credits.grab_focus()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b61ebt7kmkbgu"]
+[gd_scene load_steps=7 format=3 uid="uid://b61ebt7kmkbgu"]
 
 [ext_resource type="Theme" uid="uid://dldyry0ytjvc4" path="res://themes/skate_button.tres" id="1_06t4h"]
-[ext_resource type="Script" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://ddiv7fq0nl00w" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://i4uwjr7b42g5" path="res://assets/skamte.png" id="2_7vrkn"]
 [ext_resource type="PackedScene" uid="uid://dx1yysfkocu4r" path="res://nodes/background.tscn" id="2_jix8l"]
 [ext_resource type="PackedScene" uid="uid://dpvuqtirhlk7i" path="res://obstacles/flat_ground.tscn" id="3_glbon"]
+[ext_resource type="FontFile" uid="uid://bwbmw7rvg8oeq" path="res://assets/fonts/m5x7.ttf" id="6_nlkkf"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_fu7sn")
@@ -68,5 +69,56 @@ size_flags_horizontal = 3
 [node name="HighScoreContainer2" type="VBoxContainer" parent="HighScores"]
 layout_mode = 2
 
+[node name="Credits" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 12.0
+offset_top = 53.0
+offset_right = 184.0
+offset_bottom = 154.0
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_nlkkf")
+theme_override_font_sizes/font_size = 23
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Credits"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_nlkkf")
+theme_override_font_sizes/font_size = 23
+text = "Programming: Aya"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Credits"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_nlkkf")
+theme_override_font_sizes/font_size = 23
+text = "Artwork: Aya, Kenney.nl"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Credits"]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_nlkkf")
+theme_override_font_sizes/font_size = 23
+text = "Music / SFX: Aya"
+horizontal_alignment = 1
+
+[node name="backbutton" type="Button" parent="."]
+visible = false
+offset_left = 194.0
+offset_top = 84.0
+offset_right = 276.0
+offset_bottom = 113.0
+theme = ExtResource("1_06t4h")
+text = "Back"
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="backbutton" to="." method="_on_backbutton_pressed"]
